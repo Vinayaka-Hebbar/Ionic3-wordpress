@@ -1,6 +1,10 @@
+$color-login:#FFF;
+$color-reg:#082066;
+$background-reg:#4fd5d6;
+$background:#4fd5d6;
 page-login {
   .form-content{
-    background-color: #4682B4
+    background-color: $background
   }
 
   .title{
@@ -11,14 +15,49 @@ page-login {
   }
 
   .skip-login{
-    text-align: center;
+    text-align: left;
+    width: 50%;
+    padding: 0;
     font-size: 16px;
-    margin-top: 10px;
     font-weight: 500;
-    color: #FFF;
+    color:  #082066;
     a{
-      color: #FFF;
+      color: #082066;
     }
+  }
+
+  .skip-login:hover{
+    a{
+      color: #f53d3d;
+    }
+  }
+
+  .register{
+    text-align: right;
+    width: 50%;
+    font-size: 16px;
+    background: transparent;
+    font-weight: 500;
+    color: #082066;
+    a{
+      padding: 10px;
+      color: $color-reg;
+      text-transform: uppercase;
+    }
+  }
+
+  .register:hover{
+
+    $color-reg:#000;
+    a{
+      background: rgba(255,255,255, 0.7);
+      color: $color-reg;
+    }
+  }
+
+  .row{
+    display: flex;
+    width: auto;
   }
 
   .form{
@@ -28,6 +67,15 @@ page-login {
   .login-button{
     margin-top: 30px;
     font-weight: 500;
+    color: black;
+    background: rgba(255, 255, 255, 0.75);
+  }
+
+  .login-button:disabled{
+    margin-top: 30px;
+    font-weight: 500;
+    color: #082066;
+    background: rgba(255, 255, 255, 0.75);
   }
 
   .error-message{

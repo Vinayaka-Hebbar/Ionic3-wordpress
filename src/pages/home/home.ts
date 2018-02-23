@@ -12,7 +12,7 @@ import { AuthenticationService } from '../../services/authentication.service';
 })
 export class HomePage {
 
-	posts: Array<any> = new Array<any>();
+	posts: Array<any> = [];
   morePagesAvailable: boolean = true;
   loggedUser: boolean = false;
 
@@ -34,7 +34,7 @@ export class HomePage {
       error => this.loggedUser = false
     );
     this.morePagesAvailable = true;
-
+    console.log(this.loggedUser);
     //if we are browsing a category
     this.categoryId = this.navParams.get('id');
     this.categoryTitle = this.navParams.get('title');

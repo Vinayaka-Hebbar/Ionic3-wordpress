@@ -1,7 +1,7 @@
 <ion-header>
   <ion-navbar color="primary">
     <ion-title *ngIf="post">
-      Post
+      <label [innerHTML]="post.title.rendered"></label>
     </ion-title>
   </ion-navbar>
 </ion-header>

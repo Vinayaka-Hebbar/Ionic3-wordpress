@@ -3,7 +3,6 @@ import { HomePage } from '../home/home'
 import { RegisterPage } from '../register/register'
 import { NavController, LoadingController } from 'ionic-angular';
 import { Validators, FormBuilder, FormGroup, FormControl } from '@angular/forms';
-import { WordpressService } from '../../services/wordpress.service';
 import { AuthenticationService } from '../../services/authentication.service';
 
 @Component({
@@ -13,12 +12,12 @@ import { AuthenticationService } from '../../services/authentication.service';
 export class LoginPage {
   login_form: FormGroup;
   error_message: string;
+  isLogin:any;
 
   constructor(
     public navCtrl: NavController,
     public loadingCtrl: LoadingController,
     public formBuilder: FormBuilder,
-    public wordpressService: WordpressService,
     public authenticationService: AuthenticationService
   ) {}
 
@@ -49,7 +48,7 @@ export class LoginPage {
      },
      err => {
        loading.dismiss();
-       this.error_message = "Invalid credentials. Try with username 'aa' password 'aa'.";
+       this.error_message = "Invalid credentials.";
        console.log(err);
      })
   }

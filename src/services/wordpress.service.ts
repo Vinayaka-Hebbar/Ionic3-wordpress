@@ -33,6 +33,11 @@ export class WordpressService {
     .map(res => res.json());
   }
 
+  getFeaturedImage(featuredMedia){
+    return this.http.get(Config.WORDPRESS_REST_API_URL + "media/" + featuredMedia)
+      .map(res => res.json());
+  }
+
   getPostCategories(post){
     let observableBatch = [];
 

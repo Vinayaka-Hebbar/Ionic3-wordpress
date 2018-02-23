@@ -14,9 +14,7 @@ export class RegisterPage {
   register_form: FormGroup;
 
   constructor(
-    public navCtrl: NavController,
     public formBuilder: FormBuilder,
-    public wordpressService: WordpressService,
     public authenticationService: AuthenticationService
   ) {}
 
@@ -30,8 +28,8 @@ export class RegisterPage {
   }
 
   onSubmit(values){
-    var username: 'aa'; // this should be an administrator Username
-    var password: 'aa'; // this should be an administrator Password
+    let username: 'aa'; // this should be an administrator Username
+    let password: 'aa'; // this should be an administrator Password
     //only authenticated administrators can create users
     this.authenticationService.doLogin(username, password)
     .subscribe(

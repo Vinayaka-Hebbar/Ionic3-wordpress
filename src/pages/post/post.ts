@@ -16,8 +16,9 @@ export class PostPage {
 
   post: any;
   user: string;
-  comments: Array<any> = new Array<any>();
-  categories: Array<any> = new Array<any>();
+  comments: Array<any> = [];
+  categories: Array<any> = [];
+  featuredImage:string;
   morePagesAvailable: boolean = true;
 
   constructor(
@@ -42,17 +43,23 @@ export class PostPage {
     Observable.forkJoin(
       this.getAuthorData(),
       this.getCategories(),
-      this.getComments())
+      this.getComments(),
+      this.getFeaturedMedia())
       .subscribe(data => {
         this.user = data[0].name;
         this.categories = data[1];
         this.comments = data[2];
+        this.featuredImage = data[3].description.rendered;
         loading.dismiss();
       });
   }
 
   getAuthorData(){
     return this.wordpressService.getAuthor(this.post.author);
+  }
+
+  getFeaturedMedia(){
+    return this.wordpressService.getFeaturedImage(this.post.featured_media);
   }
 
   getCategories(){

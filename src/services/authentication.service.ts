@@ -19,6 +19,14 @@ export class AuthenticationService {
     return this.nativeStorage.setItem('User', user);
   }
 
+  getValue(key){
+    return this.nativeStorage.getItem(key);
+  }
+
+  setValue(key,value){
+    return this.nativeStorage.setItem(key,value);
+  }
+
   logOut(){
     return this.nativeStorage.clear();
   }
